@@ -10,6 +10,7 @@ if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
 	CONFIGURE_OPTIONS+=("")
 else
 	CONFIGURE_OPTIONS+=("--enable-fsanitize-asan --enable-fsanitize-ubsan")
+	CONFIGURE_OPTIONS+=("--enable-fsanitize-msan")
 	CONFIGURE_OPTIONS+=("--enable-valgrind-tests")
 fi
 
