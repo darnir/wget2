@@ -9,8 +9,11 @@ export CFLAGS="-O0 -g"
 if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
 	CONFIGURE_OPTIONS+=("")
 else
+	if [[ $CC == 'clang' ]]; then
+		# Memory Sanitizer is available only on Clang. Is a No-Op on GCC
+		CONFIGURE_OPTIONS+=("--enable-fsanitize-msan")
+	fi
 	CONFIGURE_OPTIONS+=("--enable-fsanitize-asan --enable-fsanitize-ubsan")
-	CONFIGURE_OPTIONS+=("--enable-fsanitize-msan")
 	CONFIGURE_OPTIONS+=("--enable-valgrind-tests")
 fi
 
