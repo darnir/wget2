@@ -241,7 +241,7 @@ if test "$gl_cc_sanitize_msan" = yes; then
 fi
 
 if test "$gl_cc_sanitize_tsan" = yes; then
-  gl_WARN_ADD([-fsanitize=thread -fPIC -pie])
+  gl_WARN_ADD([-fsanitize=thread])
 fi
 
 #
